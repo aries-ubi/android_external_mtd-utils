@@ -170,3 +170,22 @@ LOCAL_STATIC_LIBRARIES := libmtd-utils libubi libc
 LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_PACK_MODULE_RELOCATIONS := false
 include $(BUILD_EXECUTABLE)
+
+# Recovery ubiupdatevol
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := \
+	ubi-utils/ubiupdatevol.c
+
+LOCAL_C_INCLUDES += \
+	$(LOCAL_PATH)/include
+
+LOCAL_MODULE := recovery_ubiupdatevol
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := RECOVERY_EXECUTABLES
+LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/sbin
+LOCAL_UNSTRIPPED_PATH := $(PRODUCT_OUT)/symbols/recovery
+LOCAL_MODULE_STEM := ubiupdatevol
+LOCAL_STATIC_LIBRARIES := libmtd-utils libubi libc
+LOCAL_FORCE_STATIC_EXECUTABLE := true
+LOCAL_PACK_MODULE_RELOCATIONS := false
+include $(BUILD_EXECUTABLE)
